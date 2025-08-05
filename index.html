@@ -2,59 +2,130 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>ورود با کد ملی</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ورود به سایت امیرمهدی</title>
   <style>
     @font-face {
       font-family: 'BitaBold';
-      src: url('https://09926602286.github.io/sat/Bita%20Bold_MR.TTF');
+      src: url('https://09926602286.github.io/sat/Bita%20Bold_MR.TTF') format('truetype');
     }
+
+    @font-face {
+      font-family: 'Jomhuria';
+      src: url('https://09926602286.github.io/sat/Jomhuria.ttf') format('truetype');
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
+      padding: 0;
       font-family: 'BitaBold', sans-serif;
-      background: linear-gradient(to bottom, #00ffd0, #00c8aa);
+      background: url('https://09926602286.github.io/sat/1.jpg') no-repeat center center fixed;
+      background-size: cover;
       height: 100vh;
       display: flex;
-      justify-content: center;
       align-items: center;
-      direction: rtl;
+      justify-content: center;
     }
-    .login-box {
-      background: white;
-      padding: 40px;
-      border-radius: 14px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.2);
+
+    .login-container {
+      background: rgba(0, 0, 0, 0.65);
+      padding: 30px 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #00ffd0;
+      width: 90%;
+      max-width: 320px;
       text-align: center;
-      width: 300px;
+      backdrop-filter: blur(6px);
     }
-    input, button {
-      width: 100%;
+
+    .login-container h2 {
+      color: #00ffd0;
+      margin-bottom: 10px;
+      font-size: 26px;
+      font-family: 'Jomhuria', sans-serif;
+    }
+
+    .login-container p {
+      color: #ccc;
+      margin-top: -5px;
+      margin-bottom: 20px;
+      font-size: 15px;
+      font-family: 'BitaBold', sans-serif;
+    }
+
+    .login-container input {
+      width: 90%;
       padding: 10px;
-      margin: 10px 0;
-      font-size: 16px;
-      border-radius: 8px;
+      margin-bottom: 15px;
+      background: #111;
       border: none;
-    }
-    button {
-      background-color: #00c8aa;
+      border-bottom: 2px solid #00ffd0;
       color: white;
+      font-size: 17px;
+      border-radius: 5px;
+      text-align: center;
+      font-family: 'BitaBold', sans-serif;
+    }
+
+    .login-container input::placeholder {
+      color: #aaa;
+      text-align: center;
+      font-family: 'BitaBold', sans-serif;
+    }
+
+    .login-container button {
+      width: 95%;
+      padding: 12px;
+      background: #00ffd0;
+      border: none;
+      color: black;
+      font-weight: bold;
+      border-radius: 8px;
       cursor: pointer;
+      transition: 0.3s;
+      font-family: 'Jomhuria', sans-serif;
+      font-size: 18px;
+    }
+
+    .login-container button:hover {
+      background: #00ff99;
     }
   </style>
 </head>
 <body>
 
-  <div class="login-box">
-    <h2>ورود به پنل امیرمهدی</h2>
-    <input type="text" id="nationalCode" placeholder="کد ملی">
-    <button onclick="checkCode()">ورود</button>
+  <div class="login-container">
+    <h2>ورود به سایت</h2>
+    <p>سایت دسته سایبری بسیج مداحان</p>
+    <input type="text" id="username" placeholder="نام کاربری">
+    <input type="password" id="password" placeholder="رمز عبور">
+    <button onclick="login()">ورود</button>
   </div>
 
   <script>
-    function checkCode() {
-      const code = document.getElementById('nationalCode').value;
-      if (code === '1275335071') {
-        window.location.href = 'panel/1275335071.html';
+    const users = [
+      {
+        username: "1275335071",
+        password: "1275335071",
+        data: "پنل امیرمهدی ابراهیمی"
+      }
+      // کاربران دیگر را در اینجا اضافه کن
+    ];
+
+    function login() {
+      const u = document.getElementById("username").value.trim();
+      const p = document.getElementById("password").value.trim();
+      const user = users.find(x => x.username === u && x.password === p);
+
+      if (user) {
+        alert("ورود موفق! " + user.data);
+        window.location.href = "panel/" + user.username + ".html";
       } else {
-        alert('کد ملی اشتباه است!');
+        alert("نام کاربری یا رمز عبور اشتباه است!");
       }
     }
   </script>
