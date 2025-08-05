@@ -6,21 +6,30 @@
   <style>
     body {
       font-family: sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
       padding: 0;
       direction: rtl;
+      background-image: url("attachments/QnLXSr6ssj9F9onTkryAg.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
     header {
-      background-color: #2d3e50;
-      color: white;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
       padding: 10px;
       text-align: center;
+      backdrop-filter: blur(2px);
     }
     .welcome {
       text-align: center;
       margin: 10px;
       font-size: 18px;
+      color: #222;
+      background-color: rgba(255,255,255,0.8);
+      padding: 10px;
+      border-radius: 8px;
+      display: inline-block;
     }
     .container {
       display: flex;
@@ -30,12 +39,13 @@
       justify-content: center;
     }
     .section {
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.75);
       padding: 20px;
       flex: 1 1 300px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
-      border-radius: 5px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
+      border-radius: 8px;
       min-width: 280px;
+      backdrop-filter: blur(2px);
     }
     input, button {
       padding: 8px;
@@ -53,9 +63,10 @@
     <h2>🎯 پنل پویا</h2>
   </header>
 
-  <div class="welcome" id="greeting">
-    خوش آمدی، امیرمهدی!  
-    امروز <span id="date"></span>، ساعت <span id="time"></span>
+  <div style="text-align:center">
+    <div class="welcome">
+      خوش آمدی، امیرمهدی! امروز <span id="date"></span>، ساعت <span id="time"></span>
+    </div>
   </div>
 
   <div class="container">
@@ -89,11 +100,9 @@
       document.getElementById("time").textContent = time;
     }
 
-    // اجرای اولیه و به‌روزرسانی دوره‌ای
     updateClock();
     setInterval(updateClock, 30000);
 
-    // ثبت دسته در localStorage
     const categoryInput = document.getElementById("newCategory");
     const categoriesList = document.getElementById("categories");
 
@@ -110,7 +119,6 @@
     function addCategory() {
       const cat = categoryInput.value.trim();
       if (!cat) return alert("نام دسته نمی‌تونه خالی باشه!");
-
       let data = JSON.parse(localStorage.getItem("categories") || "[]");
       data.push(cat);
       localStorage.setItem("categories", JSON.stringify(data));
@@ -119,10 +127,9 @@
     }
 
     function logout() {
-      window.location.href = "index.html"; // مسیر بازگشت به صفحه ورود
+      window.location.href = "index.html";
     }
 
-    // بارگذاری اولیه دسته‌ها
     loadCategories();
   </script>
 </body>
