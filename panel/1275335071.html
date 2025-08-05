@@ -9,6 +9,7 @@
       background-color: #f4f4f4;
       margin: 0;
       padding: 0;
+      direction: rtl;
     }
     header {
       background-color: #2d3e50;
@@ -19,12 +20,14 @@
     .welcome {
       text-align: center;
       margin: 10px;
+      font-size: 18px;
     }
     .container {
       display: flex;
       gap: 20px;
       padding: 20px;
       flex-wrap: wrap;
+      justify-content: center;
     }
     .section {
       background-color: white;
@@ -32,13 +35,16 @@
       flex: 1 1 300px;
       box-shadow: 0 0 5px rgba(0,0,0,0.2);
       border-radius: 5px;
+      min-width: 280px;
     }
     input, button {
-      padding: 5px;
+      padding: 8px;
       margin-top: 10px;
+      font-size: 14px;
     }
     #categories {
       margin-top: 10px;
+      padding-right: 15px;
     }
   </style>
 </head>
@@ -47,7 +53,10 @@
     <h2>🎯 پنل پویا</h2>
   </header>
 
-  <div class="welcome" id="greeting">خوش آمدی، امیرمهدی! امروز <span id="date"></span></div>
+  <div class="welcome" id="greeting">
+    خوش آمدی، امیرمهدی!  
+    امروز <span id="date"></span>، ساعت <span id="time"></span>
+  </div>
 
   <div class="container">
     <div class="section">
@@ -55,7 +64,7 @@
       <p><strong>نام:</strong> امیرمهدی</p>
       <p><strong>شماره تلفن:</strong> 0912xxxxxxx</p>
       <p><strong>تاریخ تولد:</strong> 1380/05/15</p>
-      <button onclick="alert('ویرایش اطلاعات در نسخه بعدی اضافه میشه')">ویرایش اطلاعات</button>
+      <button onclick="alert('ویرایش اطلاعات در نسخه بعدی فعال خواهد شد')">ویرایش اطلاعات</button>
     </div>
 
     <div class="section">
@@ -72,10 +81,19 @@
   </div>
 
   <script>
-    // تاریخ امروز
-    document.getElementById("date").textContent = new Date().toLocaleDateString("fa-IR");
+    function updateClock() {
+      const now = new Date();
+      const faDate = now.toLocaleDateString("fa-IR");
+      const time = now.toLocaleTimeString("fa-IR");
+      document.getElementById("date").textContent = faDate;
+      document.getElementById("time").textContent = time;
+    }
 
-    // ثبت دسته جدید در localStorage
+    // اجرای اولیه و به‌روزرسانی دوره‌ای
+    updateClock();
+    setInterval(updateClock, 30000);
+
+    // ثبت دسته در localStorage
     const categoryInput = document.getElementById("newCategory");
     const categoriesList = document.getElementById("categories");
 
@@ -101,9 +119,10 @@
     }
 
     function logout() {
-      window.location.href = "index.html"; // بازگشت به صفحه ورود
+      window.location.href = "index.html"; // مسیر بازگشت به صفحه ورود
     }
 
+    // بارگذاری اولیه دسته‌ها
     loadCategories();
   </script>
 </body>
