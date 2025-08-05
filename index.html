@@ -2,25 +2,78 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>سایت امیرمهدی</title>
+  <title>ورود به سایت</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazir&display=swap');
+
     body {
-      background-color: #0a0a0a;
-      color: #00ffcc;
+      margin: 0;
+      padding: 0;
       font-family: 'Vazir', sans-serif;
+      background: url('https://09926602286.github.io/sat/background.jpeg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .login-box {
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 15px;
+      width: 320px;
+      padding: 30px;
+      box-shadow: 0 0 15px #00ffcc;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      padding-top: 80px;
     }
-    h1 {
-      font-size: 3em;
+
+    .login-box h2 {
+      color: #00ffcc;
+      margin-bottom: 25px;
     }
-    p {
-      font-size: 1.5em;
+
+    .login-box input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #111;
+      border: none;
+      border-bottom: 2px solid #00ffcc;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .login-box input::placeholder {
+      color: #999;
+    }
+
+    .login-box button {
+      width: 95%;
+      padding: 12px;
+      background: #00ffcc;
+      border: none;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #00ff99;
     }
   </style>
 </head>
 <body>
-  <h1>خوش اومدی به سایت من 🌟</h1>
-  <p>اینجا جاییه که قراره خلاقیت‌هامو نشون بدم!</p>
+
+  <div class="login-box">
+    <h2>ورود به سایت</h2>
+    <input type="text" placeholder="نام کاربری">
+    <input type="password" placeholder="رمز عبور">
+    <button>ورود</button>
+  </div>
+
 </body>
 </html>
