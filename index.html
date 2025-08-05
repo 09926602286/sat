@@ -3,132 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ورود به سایت امیرمهدی</title>
+  <title>پنل امیرمهدی</title>
   <style>
     @font-face {
       font-family: 'BitaBold';
       src: url('https://09926602286.github.io/sat/Bita%20Bold_MR.TTF') format('truetype');
     }
 
-    @font-face {
-      font-family: 'Jomhuria';
-      src: url('https://09926602286.github.io/sat/Jomhuria.ttf') format('truetype');
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      padding: 0;
       font-family: 'BitaBold', sans-serif;
-      background: url('https://09926602286.github.io/sat/1.jpg') no-repeat center center fixed;
-      background-size: cover;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .login-container {
-      background: rgba(0, 0, 0, 0.65);
-      padding: 30px 25px;
-      border-radius: 15px;
-      box-shadow: 0 0 25px #00ffd0;
-      width: 90%;
-      max-width: 320px;
-      text-align: center;
-      backdrop-filter: blur(6px);
-    }
-
-    .login-container h2 {
-      color: #00ffd0;
-      margin-bottom: 10px;
-      font-size: 26px;
-      font-family: 'Jomhuria', sans-serif;
-    }
-
-    .login-container p {
-      color: #ccc;
-      margin-top: -5px;
-      margin-bottom: 20px;
-      font-size: 15px;
-      font-family: 'BitaBold', sans-serif;
-    }
-
-    .login-container input {
-      width: 90%;
-      padding: 10px;
-      margin-bottom: 15px;
-      background: #111;
-      border: none;
-      border-bottom: 2px solid #00ffd0;
+      background-color: #101010;
       color: white;
-      font-size: 17px;
-      border-radius: 5px;
-      text-align: center;
-      font-family: 'BitaBold', sans-serif;
+      display: flex;
+      height: 100vh;
     }
 
-    .login-container input::placeholder {
-      color: #aaa;
-      text-align: center;
-      font-family: 'BitaBold', sans-serif;
+    .sidebar {
+      width: 220px;
+      background-color: #00ffd0;
+      padding-top: 40px;
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .login-container button {
-      width: 95%;
-      padding: 12px;
-      background: #00ffd0;
-      border: none;
+    .sidebar a {
+      text-decoration: none;
       color: black;
       font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-family: 'Jomhuria', sans-serif;
+      margin: 15px 0;
       font-size: 18px;
+      transition: transform 0.3s ease;
     }
 
-    .login-container button:hover {
-      background: #00ff99;
+    .sidebar a:hover {
+      transform: scale(1.05);
+    }
+
+    .content {
+      flex-grow: 1;
+      padding: 30px;
+      background: url('https://09926602286.github.io/sat/1.jpg') no-repeat center center;
+      background-size: cover;
+      backdrop-filter: blur(4px);
+      direction: rtl;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
     }
   </style>
 </head>
 <body>
 
-  <div class="login-container">
-    <h2>ورود به سایت</h2>
-    <p>سایت دسته سایبری بسیج مداحان</p>
-    <input type="text" id="username" placeholder="نام کاربری">
-    <input type="password" id="password" placeholder="رمز عبور">
-    <button onclick="login()">ورود</button>
+  <div class="sidebar">
+    <a href="#">📊 داشبورد</a>
+    <a href="#">👤 اطلاعات شخصی</a>
+    <a href="#">📝 ثبت اطلاعات جدید</a>
   </div>
 
-  <script>
-    const users = [
-      {
-        username: "1275335071",
-        password: "1275335071",
-        data: "پنل امیرمهدی ابراهیمی"
-      }
-      // کاربران دیگر را در اینجا اضافه کن
-    ];
-
-    function login() {
-      const u = document.getElementById("username").value.trim();
-      const p = document.getElementById("password").value.trim();
-      const user = users.find(x => x.username === u && x.password === p);
-
-      if (user) {
-        alert("ورود موفق! " + user.data);
-        window.location.href = "panel/" + user.username + ".html";
-      } else {
-        alert("نام کاربری یا رمز عبور اشتباه است!");
-      }
-    }
-  </script>
+  <div class="content">
+    <h1>سلام امیرمهدی ابراهیمی ❤️</h1>
+    <p>به پنل اختصاصی خودت خوش اومدی. از طریق منوی سمت راست می‌تونی وارد بخش‌های مختلف بشی.</p>
+  </div>
 
 </body>
 </html>
