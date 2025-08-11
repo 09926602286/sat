@@ -1,137 +1,160 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>پنل پویا</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پنل ثبت اطلاعات سازمان بسیج مداحان</title>
+  <!-- فونت B -->
+  <style>
+    @font-face {
+      font-family: 'FontB';
+      src: url('FontB.woff2') format('woff2'),
+           url('FontB.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
   <style>
     body {
-      font-family: sans-serif;
       margin: 0;
-      padding: 0;
-      direction: rtl;
-      background-image: url('https://09926602286.github.io/sat/121.jpg'); /* مسیر تصویر */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      font-family: 'FontB', sans-serif;
+      background-color: #121212;
+      color: #fff;
     }
+
     header {
-      background-color: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      padding: 10px;
+      background-color: #FFD700;
+      color: #121212;
+      padding: 1rem;
       text-align: center;
-      backdrop-filter: blur(2px);
+      font-size: 1.5rem;
+      font-weight: bold;
     }
-    .welcome {
-      text-align: center;
-      margin: 10px;
-      font-size: 18px;
-      color: #fff;
-      background-color: rgba(0,0,0,0.4);
-      padding: 10px;
-      border-radius: 8px;
-      display: inline-block;
-    }
+
     .container {
       display: flex;
-      gap: 20px;
-      padding: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
+      height: 100vh;
     }
-    .section {
-      background-color: rgba(0, 0, 0, 0.4); /* شفاف و تیره برای خوانایی بهتر */
-      padding: 20px;
-      flex: 1 1 300px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.3);
-      border-radius: 8px;
-      min-width: 280px;
-      backdrop-filter: blur(2px);
+
+    .sidebar {
+      width: 250px;
+      background-color: #1e1e1e;
+      padding: 1rem;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar h3 {
+      margin-top: 0;
+      color: #FFD700;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 1rem 0;
+      padding: 0.5rem;
+      background-color: #2a2a2a;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #FFD700;
+      color: #121212;
+    }
+
+    .main {
+      flex: 1;
+      padding: 2rem;
+      background-color: #121212;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+
+    .card h2 {
+      color: #FFD700;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #2a2a2a;
       color: #fff;
+      font-family: 'FontB', sans-serif;
     }
-    input, button {
-      padding: 8px;
-      margin-top: 10px;
-      font-size: 14px;
+
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      background-color: #333;
     }
-    #categories {
-      margin-top: 10px;
-      padding-right: 15px;
+
+    .btn {
+      background-color: #FFD700;
+      color: #121212;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+      font-family: 'FontB', sans-serif;
+    }
+
+    .btn:hover {
+      background-color: #e6c200;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h2>🎯 پنل پویا</h2>
-  </header>
-
-  <div style="text-align:center">
-    <div class="welcome">
-      خوش آمدی، امیرمهدی! امروز <span id="date"></span>، ساعت <span id="time"></span>
-    </div>
-  </div>
-
+  <header>پنل ثبت اطلاعات سازمان بسیج مداحان</header>
   <div class="container">
-    <div class="section">
-      <h3>📋 اطلاعات کاربری</h3>
-      <p><strong>نام:</strong> امیرمهدی</p>
-      <p><strong>شماره تلفن:</strong> 0912xxxxxxx</p>
-      <p><strong>تاریخ تولد:</strong> 1380/05/15</p>
-      <button onclick="alert('ویرایش اطلاعات در نسخه بعدی فعال خواهد شد')">ویرایش اطلاعات</button>
+    <div class="sidebar">
+      <h3>منو</h3>
+      <ul>
+        <li>پروفایل کاربر</li>
+        <li>ثبت اطلاعات جدید</li>
+        <li>گزارش‌ها</li>
+      </ul>
     </div>
-
-    <div class="section">
-      <h3>➕ ثبت دسته جدید</h3>
-      <input type="text" id="newCategory" placeholder="نام دسته">
-      <button onclick="addCategory()">ثبت دسته</button>
-      <ul id="categories"></ul>
-    </div>
-
-    <div class="section">
-      <h3>🚪 خروج از حساب</h3>
-      <button onclick="logout()">خروج</button>
+    <div class="main">
+      <div class="card">
+        <h2>فرم ثبت اطلاعات</h2>
+        <div class="form-group">
+          <label for="name">نام و نام خانوادگی</label>
+          <input type="text" id="name" placeholder="مثلاً امیرمهدی رضایی">
+        </div>
+        <div class="form-group">
+          <label for="role">نقش در سازمان</label>
+          <input type="text" id="role" placeholder="مثلاً مداح">
+        </div>
+        <div class="form-group">
+          <label for="desc">توضیحات</label>
+          <textarea id="desc" rows="4" placeholder="توضیحات بیشتر..."></textarea>
+        </div>
+        <button class="btn">ثبت اطلاعات</button>
+      </div>
     </div>
   </div>
-
-  <script>
-    function updateClock() {
-      const now = new Date();
-      const faDate = now.toLocaleDateString("fa-IR");
-      const time = now.toLocaleTimeString("fa-IR");
-      document.getElementById("date").textContent = faDate;
-      document.getElementById("time").textContent = time;
-    }
-
-    updateClock();
-    setInterval(updateClock, 30000);
-
-    const categoryInput = document.getElementById("newCategory");
-    const categoriesList = document.getElementById("categories");
-
-    function loadCategories() {
-      const data = JSON.parse(localStorage.getItem("categories") || "[]");
-      categoriesList.innerHTML = "";
-      data.forEach(cat => {
-        const li = document.createElement("li");
-        li.textContent = cat;
-        categoriesList.appendChild(li);
-      });
-    }
-
-    function addCategory() {
-      const cat = categoryInput.value.trim();
-      if (!cat) return alert("نام دسته نمی‌تونه خالی باشه!");
-      let data = JSON.parse(localStorage.getItem("categories") || "[]");
-      data.push(cat);
-      localStorage.setItem("categories", JSON.stringify(data));
-      categoryInput.value = "";
-      loadCategories();
-    }
-
-    function logout() {
-      window.location.href = "index.html";
-    }
-
-    loadCategories();
-  </script>
 </body>
 </html>
